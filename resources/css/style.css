@@ -1,0 +1,100 @@
+:root {
+    --presto-dark: #202124;
+    --presto-green: #76a83b;
+    --presto-green-dark: #628f2f;
+    --presto-light: #f6f7f4;
+    --presto-gray: #6c757d;
+    --presto-border: #dddddd;
+}
+
+body {
+    min-height: 100vh;
+    color: var(--presto-dark);
+    background-color: var(--presto-light);
+}
+
+.height-custom {
+    min-height: 60vh;
+}
+
+.navbar-presto {
+    background-color: white;
+    border-bottom: 1px solid var(--presto-border);
+}
+
+.presto-brand {
+    color: var(--presto-green);
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.presto-brand:hover {
+    color: var(--presto-green-dark);
+}
+
+.hero-section {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.hero-title {
+    max-width: 750px;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: bold;
+}
+
+.hero-text {
+    max-width: 650px;
+    color: var(--presto-gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.section-label {
+    color: var(--presto-green);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.btn-presto {
+    color: white;
+    background-color: var(--presto-green);
+    border-color: var(--presto-green);
+    font-weight: bold;
+}
+
+.btn-presto:hover {
+    color: white;
+    background-color: var(--presto-green-dark);
+    border-color: var(--presto-green-dark);
+}
+
+.form-box {
+    padding: 35px;
+    background-color: white;
+    border: 1px solid var(--presto-border);
+    border-radius: 8px;
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.presto-footer {
+    padding: 35px 0;
+    color: white;
+    background-color: var(--presto-dark);
+}
+
+@media screen and (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .form-box {
+        padding: 25px;
+    }
+}
