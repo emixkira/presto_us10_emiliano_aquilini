@@ -29,29 +29,86 @@
             <ul class="navbar-nav ms-auto">
 
                 <li class="nav-item">
+
                     <a
                         class="nav-link"
                         href="{{ route('home') }}"
                     >
                         Home
                     </a>
+
+                </li>
+
+                <li class="nav-item">
+
+                    <a
+                        class="nav-link"
+                        href="{{ route('article.index') }}"
+                    >
+                        Annunci
+                    </a>
+
+                </li>
+
+                <li class="nav-item dropdown">
+
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                    >
+                        Categorie
+                    </a>
+
+                    <ul class="dropdown-menu">
+
+                        @foreach ($categories as $category)
+
+                            <li>
+
+                                <a
+                                    class="dropdown-item"
+                                    href="{{ route('article.byCategory', $category) }}"
+                                >
+                                    {{ $category->name }}
+                                </a>
+
+                            </li>
+
+                            @if (!$loop->last)
+
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+
+                            @endif
+
+                        @endforeach
+
+                    </ul>
+
                 </li>
 
                 @auth
 
                     <li class="nav-item">
+
                         <a
                             class="nav-link"
                             href="{{ route('article.create') }}"
                         >
                             Inserisci annuncio
                         </a>
+
                     </li>
 
                     <li class="nav-item">
+
                         <span class="nav-link">
                             Ciao {{ auth()->user()->name }}
                         </span>
+
                     </li>
 
                     <li class="nav-item">
@@ -60,6 +117,7 @@
                             method="POST"
                             action="{{ route('logout') }}"
                         >
+
                             @csrf
 
                             <button
@@ -76,21 +134,25 @@
                 @else
 
                     <li class="nav-item">
+
                         <a
                             class="nav-link"
                             href="{{ route('login') }}"
                         >
                             Accedi
                         </a>
+
                     </li>
 
                     <li class="nav-item">
+
                         <a
                             class="nav-link"
                             href="{{ route('register') }}"
                         >
                             Registrati
                         </a>
+
                     </li>
 
                 @endauth

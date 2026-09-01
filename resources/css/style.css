@@ -83,6 +83,51 @@ body {
     font-weight: bold;
 }
 
+.presto-card {
+    width: 100%;
+    border: 1px solid var(--presto-border);
+}
+
+.presto-card .card-title {
+    font-weight: bold;
+}
+
+.article-price {
+    color: var(--presto-green-dark);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.article-price-large {
+    font-size: 2rem;
+}
+
+.article-description {
+    padding: 25px;
+    background-color: white;
+    border: 1px solid var(--presto-border);
+    border-radius: 8px;
+}
+
+.placeholder-image {
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #6c757d;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.empty-box {
+    padding: 40px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid var(--presto-border);
+    border-radius: 8px;
+}
+
 .presto-footer {
     padding: 35px 0;
     color: white;
@@ -96,5 +141,9 @@ body {
 
     .form-box {
         padding: 25px;
+    }
+
+    .placeholder-image {
+        min-height: 280px;
     }
 }
