@@ -1,5 +1,29 @@
 <x-layout title="Presto">
 
+@if (session()->has('message'))
+
+    <div class="container mt-4">
+
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+
+    </div>
+
+@endif
+
+@if (session()->has('errorMessage'))
+
+    <div class="container mt-4">
+
+        <div class="alert alert-danger">
+            {{ session('errorMessage') }}
+        </div>
+
+    </div>
+
+@endif
+
     <header class="hero-section">
 
         <div class="container">

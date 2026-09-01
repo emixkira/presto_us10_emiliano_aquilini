@@ -12,16 +12,23 @@ class ArticleController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware('auth', only: ['create']),
+            new Middleware(
+                'auth',
+                only: ['create']
+            ),
         ];
     }
 
     public function index()
     {
-        $articles = Article::orderBy('created_at', 'desc')
+        $articles = Article::where('is_accepted', true)
+            ->orderBy('created_at', 'desc')
             ->paginate(6);
 
-        return view('article.index', compact('articles'));
+        return view(
+            'article.index',
+            compact('articles')
+        );
     }
 
     public function create()
@@ -31,12 +38,20 @@ class ArticleController extends Controller implements HasMiddleware
 
     public function show(Article $article)
     {
-        return view('article.show', compact('article'));
+        if (!$article->is_accepted) {
+            abort(404);
+        }
+
+        return view(
+            'article.show',
+            compact('article')
+        );
     }
 
     public function byCategory(Category $category)
     {
         $articles = $category->articles()
+            ->where('is_accepted', true)
             ->orderBy('created_at', 'desc')
             ->paginate(6);
 

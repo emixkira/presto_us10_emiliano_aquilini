@@ -103,6 +103,32 @@
 
                     </li>
 
+                    @if (auth()->user()->is_revisor)
+
+                        <li class="nav-item">
+
+                            <a
+                                class="nav-link position-relative"
+                                href="{{ route('revisor.index') }}"
+                            >
+                                Zona revisore
+
+                                @if (\App\Models\Article::toBeRevisedCount() > 0)
+
+                                    <span
+                                        class="badge rounded-pill bg-danger ms-1"
+                                    >
+                                        {{ \App\Models\Article::toBeRevisedCount() }}
+                                    </span>
+
+                                @endif
+
+                            </a>
+
+                        </li>
+
+                    @endif
+
                     <li class="nav-item">
 
                         <span class="nav-link">

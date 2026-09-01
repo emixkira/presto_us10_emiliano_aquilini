@@ -147,3 +147,14 @@ body {
         min-height: 280px;
     }
 }
+
+.revisor-placeholder {
+    min-height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-color: #6c757d;
+    border-radius: 8px;
+    font-weight: bold;
+}
