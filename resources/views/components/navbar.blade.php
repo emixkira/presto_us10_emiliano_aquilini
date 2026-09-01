@@ -26,7 +26,7 @@
             id="navbarPresto"
         >
 
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav me-auto">
 
                 <li class="nav-item">
 
@@ -76,19 +76,39 @@
 
                             </li>
 
-                            @if (!$loop->last)
-
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-
-                            @endif
-
                         @endforeach
 
                     </ul>
 
                 </li>
+
+            </ul>
+
+            <form
+                class="d-flex me-3"
+                method="GET"
+                action="{{ route('article.search') }}"
+            >
+
+                <input
+                    class="form-control me-2"
+                    type="search"
+                    name="query"
+                    placeholder="Cerca annunci"
+                    value="{{ request('query') }}"
+                    required
+                >
+
+                <button
+                    class="btn btn-outline-success"
+                    type="submit"
+                >
+                    Cerca
+                </button>
+
+            </form>
+
+            <ul class="navbar-nav">
 
                 @auth
 
@@ -108,16 +128,14 @@
                         <li class="nav-item">
 
                             <a
-                                class="nav-link position-relative"
+                                class="nav-link"
                                 href="{{ route('revisor.index') }}"
                             >
                                 Zona revisore
 
                                 @if (\App\Models\Article::toBeRevisedCount() > 0)
 
-                                    <span
-                                        class="badge rounded-pill bg-danger ms-1"
-                                    >
+                                    <span class="badge rounded-pill bg-danger">
                                         {{ \App\Models\Article::toBeRevisedCount() }}
                                     </span>
 
